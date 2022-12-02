@@ -104,9 +104,8 @@ class PassFileIO {
     final passId = _generatePassId();
     final passFile = await _createPass(passId: passId);
     final passDir = Directory(path.withoutExtension(passFile.path));
-    final response = await Dio(BaseOptions(headers: headers)).post<dynamic>(url);
+    final response = await Dio(BaseOptions(headers: headers)).download(url,passFile.path);
     if (response.statusCode == 200) {
-      await passFile.writeAsString(response.data as String);
       await _unpackPass(passPath: passFile.path);
       return PassParser(
         passId: passId,
@@ -122,9 +121,8 @@ class PassFileIO {
     final passId = _generatePassId();
     final passFile = await _createPass(passId: passId, isPreview: true);
     final passDir = Directory(path.withoutExtension(passFile.path));
-    final response = await Dio(BaseOptions(headers: headers)).post<dynamic>(url);
+    final response = await Dio(BaseOptions(headers: headers)).download(url, passFile.path);
     if (response.statusCode == 200) {
-      await passFile.writeAsString(response.data as String);
       await _unpackPass(passPath: passFile.path);
       return PassParser(
         passId: passId,
