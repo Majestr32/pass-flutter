@@ -25,13 +25,13 @@ class Pass {
   }
 
   /// Save pass file from [url] to internal memory, parse and return [PassFile]
-  Future<PassFile> saveFromUrl({required String url}) async {
-    return PassFileIO().saveFromUrl(url: url);
+  Future<PassFile> saveFromUrl({required String url, Map<String,dynamic>? headers}) async {
+    return PassFileIO().saveFromUrl(url: url, headers: headers);
   }
 
   /// Fetch preview of pass file from [url], parse and return [PassFile]
-  Future<PassFile> fetchPreviewFromUrl({required String url}) async {
-    return PassFileIO().fetchPreviewFromUrl(url: url);
+  Future<PassFile> fetchPreviewFromUrl({required String url, Map<String,dynamic>? headers}) async {
+    return PassFileIO().fetchPreviewFromUrl(url: url, headers: headers);
   }
 
   /// Delete all files and folders for [passFile] from internal memory and return saved passes
