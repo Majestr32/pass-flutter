@@ -9,8 +9,8 @@ part of 'fields.dart';
 Fields _$FieldsFromJson(Map<String, dynamic> json) {
   return Fields(
     key: json['key'] as String,
-    label: json['label'] as String?,
     value: json['value'] as String,
+    label: json['label'] as String?,
     changeMessage: json['changeMessage'] as String?,
   );
 }

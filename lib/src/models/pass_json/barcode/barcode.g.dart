@@ -8,10 +8,10 @@ part of 'barcode.dart';
 
 Barcode _$BarcodeFromJson(Map<String, dynamic> json) {
   return Barcode(
-    altText: json['altText'] as String?,
     format: json['format'] as String,
     message: json['message'] as String,
     messageEncoding: json['messageEncoding'] as String,
+    altText: json['altText'] as String?,
   );
 }
 

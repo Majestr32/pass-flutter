@@ -9,6 +9,11 @@ part of 'pass_json.dart';
 PassJson _$PassJsonFromJson(Map<String, dynamic> json) {
   return PassJson(
     formatVersion: json['formatVersion'] as int,
+    passTypeIdentifier: json['passTypeIdentifier'] as String,
+    description: json['description'] as String,
+    teamIdentifier: json['teamIdentifier'] as String,
+    organizationName: json['organizationName'] as String,
+    serialNumber: json['serialNumber'] as String,
     storeCard: json['storeCard'] == null
         ? null
         : PassStructureDictionary.fromJson(
@@ -29,19 +34,12 @@ PassJson _$PassJsonFromJson(Map<String, dynamic> json) {
         ? null
         : PassStructureDictionary.fromJson(
             json['boardingPass'] as Map<String, dynamic>),
-    passTypeIdentifier: json['passTypeIdentifier'] as String,
-    description: json['description'] as String,
-    teamIdentifier: json['teamIdentifier'] as String,
-    labelColor: json['labelColor'] == null
-        ? null
-        : ColorHelper.convertToColor(json['labelColor'] as String),
+    labelColor: ColorHelper.convertToColor(json['labelColor'] as String?),
     backgroundColor:
-        ColorHelper.convertToColor(json['backgroundColor'] as String),
+        ColorHelper.convertToColor(json['backgroundColor'] as String?),
     foregroundColor:
-        ColorHelper.convertToColor(json['foregroundColor'] as String),
-    organizationName: json['organizationName'] as String,
+        ColorHelper.convertToColor(json['foregroundColor'] as String?),
     webServiceURL: json['webServiceURL'] as String?,
-    serialNumber: json['serialNumber'] as String,
     authenticationToken: json['authenticationToken'] as String?,
     associatedStoreIdentifiers:
         (json['associatedStoreIdentifiers'] as List<dynamic>?)
