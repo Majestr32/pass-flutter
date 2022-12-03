@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 // ignore: public_member_api_docs
 class ColorHelper {
   // ignore: public_member_api_docs
-  static Color convertToColor(String rgbCssColor) {
-    if (rgbCssColor.isEmpty) {
+  static Color? convertToColor(String? rgbCssColor) {
+
+    if (rgbCssColor == null || rgbCssColor.isEmpty) {
       return const Color.fromRGBO(255, 255, 255, 1);
     }
     final regExp = RegExp(r'rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)');
@@ -20,7 +21,7 @@ class ColorHelper {
   }
 
   // ignore: public_member_api_docs
-  static String convertFromColor(Color? color) {
+  static String? convertFromColor(Color? color) {
     if (color == null) return 'rgb(255,255,255)';
     return 'rgb(${color.red}, ${color.green}, ${color.blue})';
   }
